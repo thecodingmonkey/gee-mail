@@ -1,0 +1,29 @@
+.header {
+	background-color: black;
+	color: white;
+}
+
+.odd {
+	background-color: pink;
+	color: black;
+}
+
+.even {
+	background-color: white;
+	color: black;
+}
+
+.date {
+	width: 20%;
+	display: inline-table;
+}
+
+.subject {
+	width: 50%;
+	display: inline-table;
+}
+
+.sender {
+	width: 30%;
+	display: inline-table;
+}

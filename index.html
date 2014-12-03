@@ -7,12 +7,71 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
+        var messageCount = 0;
+        var msgColor = "odd"
+
+        function processNewMessage() {
+//        	alert('Hello');
+			var msgData = getNewMessage();			
+
+			var newMsg = document.createElement('div');
+			newMsg.setAttribute('id', 'message'+ ++messageCount);
+			newMsg.setAttribute('class', msgColor);
+
+			var newCol;
+			newCol = document.createElement('div');
+			newCol.setAttribute('class', 'date');
+			newCol.innerHTML = msgData.date.toLocaleString();
+			newMsg.appendChild(newCol);
+
+			newCol = document.createElement('div');
+			newCol.setAttribute('class', 'sender');
+			newCol.innerHTML = msgData.sender;
+			newMsg.appendChild(newCol);
+
+			newCol = document.createElement('div');
+			newCol.setAttribute('class', 'subject');
+			newCol.innerHTML = msgData.subject;
+			newMsg.appendChild(newCol);
+
+			newCol = document.createElement('div');
+			newCol.setAttribute('class', 'body');
+			newCol.style.display = "none";
+			newCol.setAttribute('id', 'messagebody' + messageCount);
+			newCol.innerHTML = msgData.body;
+			newMsg.appendChild(newCol);
+
+
+			document.getElementById("headers")
+					.appendChild(newMsg);
+
+
+			if (msgColor == 'odd')
+				msgColor = 'even';
+			else
+				msgColor = 'odd'
+        }
+
+        processNewMessage();
+        processNewMessage();
+        processNewMessage();
+
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+			<div class="header" id="headers">
+				<span class="header date">
+					date
+				</span>
+				<span class="header sender">
+					sender
+				</span>
+				<span class="header subject">
+					subject
+				</span>
+			</div>
 		</div>
 	</body>
 </html>
