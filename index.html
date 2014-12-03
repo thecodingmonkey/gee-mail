@@ -17,6 +17,21 @@
 			var newMsg = document.createElement('div');
 			newMsg.setAttribute('id', 'message'+ ++messageCount);
 			newMsg.setAttribute('class', msgColor);
+			document.getElementById("messagecount").innerHTML = messageCount;
+
+
+			// need to save variable here because otherwise it'll bind it to the variable of the last created function
+			var thisMessage = 'messagebody' + messageCount;
+			newMsg.onclick = function() {
+				var status = 
+					document.getElementById(thisMessage);
+
+				if (status.style.display == "none")
+					status.style.display = "block";
+				else
+					status.style.display = "none";
+
+			}
 
 			var newCol;
 			newCol = document.createElement('div');
@@ -52,15 +67,19 @@
 				msgColor = 'odd'
         }
 
-        processNewMessage();
-        processNewMessage();
-        processNewMessage();
+        setInterval(function() {processNewMessage();}, 31337);
+
+//        processNewMessage();
+//        processNewMessage();
+//        processNewMessage();
 
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
+		Message count: <span id="messagecount">0</span> .  <u>Upgrade to Gee-Mail PRO?</u> <br/>
+
 			<div class="header" id="headers">
 				<span class="header date">
 					date
